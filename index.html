@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b1021">
+  <meta name="description" content="細胞色素 c 案例研究：HDX-MS 為何可能漏掉重要的蛋白質構形變化？">
+  <meta property="og:title" content="HDX-MS 看見了什麼，又漏掉了什麼？">
+  <meta property="og:description" content="掃碼快速掌握細胞色素 c、HDX-MS 與 HDX-silent dynamics。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cytc-hdx-dynamics-2026.az7815873az.chatgpt.site">
+  <link rel="canonical" href="https://cytc-hdx-dynamics-2026.az7815873az.chatgpt.site">
+  <link rel="stylesheet" href="styles.css">
+  <title>HDX-MS 看見了什麼，又漏掉了什麼？</title>
+</head>
+<body>
+  <div class="reading-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
+  <header class="hero" id="top">
+    <nav class="nav shell" aria-label="頁面導覽">
+      <a class="brand" href="#top" aria-label="回到頁首">
+        <span class="brand-mark">Fe</span>
+        <span>CYT c × HDX</span>
+      </a>
+      <a class="nav-link" href="#takeaway">先看結論 <span aria-hidden="true">↓</span></a>
+    </nav>
+
+    <div class="hero-grid shell">
+      <div class="hero-copy">
+        <p class="eyebrow">書報二｜論文速讀</p>
+        <h1>HDX-MS 看見了什麼，<br><em>又漏掉了什麼？</em></h1>
+        <p class="subtitle">以細胞色素 <i>c</i> 為例：當蛋白質移動了，但氫鍵幾乎沒變，HDX-MS 可能無法察覺。</p>
+        <div class="meta-list" aria-label="論文資訊">
+          <span>Analytical Chemistry</span>
+          <span>2021</span>
+          <span>HDX-MS + MD</span>
+        </div>
+        <a class="primary-cta" href="#summary">30 秒掌握重點 <span aria-hidden="true">↘</span></a>
+      </div>
+
+      <div class="hero-visual" aria-label="六、五、四配位狀態與 HDX 可偵測性的示意圖">
+        <div class="protein-orbit orbit-one"></div>
+        <div class="protein-orbit orbit-two"></div>
+        <div class="heme-core">
+          <span class="heme-label">heme</span>
+          <strong>Fe</strong>
+          <span class="ligand ligand-top">M80</span>
+          <span class="ligand ligand-bottom">H18</span>
+        </div>
+        <div class="signal-chip chip-green">大幅移動</div>
+        <div class="signal-chip chip-pink">微弱 HDX 訊號</div>
+      </div>
+    </div>
+
+    <div class="hero-ribbon">
+      <div class="shell ribbon-content">
+        <span>核心概念</span>
+        <strong>蛋白質動態 ≠ 一定伴隨氫鍵打開</strong>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section shell" id="summary">
+      <div class="section-kicker">01 · 30 秒摘要</div>
+      <div class="summary-grid">
+        <div>
+          <h2>HDX-MS 很強，<br>但它不是全景攝影機。</h2>
+        </div>
+        <div class="summary-card">
+          <p>HDX-MS 主要反映蛋白質<strong>主鏈醯胺氫的氫鍵何時打開</strong>。研究發現，細胞色素 <i>c</i> 可以發生很大的構形改變，卻幾乎不改變氫鍵網路，因此形成「<strong>HDX-silent dynamics</strong>」。</p>
+          <p class="summary-bottom">換句話說：<mark>沒看到交換差異，不代表蛋白質沒有在動。</mark></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-dark" id="question">
+      <div class="shell question-grid">
+        <div>
+          <div class="section-kicker light">02 · 研究問題</div>
+          <h2>HDX 偵測的是<br><span>氫鍵打開</span>，不是「所有動作」。</h2>
+        </div>
+        <div class="mechanism" aria-label="氫氘交換機制">
+          <div class="mechanism-state closed">
+            <span class="state-name">CLOSED</span>
+            <div class="bond"><b>NH</b><i></i><b>OC</b></div>
+            <small>受氫鍵保護</small>
+          </div>
+          <div class="mechanism-arrow"><span>氫鍵波動</span>⇄</div>
+          <div class="mechanism-state open">
+            <span class="state-name">OPEN</span>
+            <div class="bond"><b>NH</b><i></i><b>OC</b></div>
+            <small>可進行 H → D 交換</small>
+          </div>
+        </div>
+        <p class="question-note">如果構形改變沒有讓 NH···OC 氫鍵打開，這個運動就可能落在 HDX-MS 的視野之外。</p>
+      </div>
+    </section>
+
+    <section class="section shell" id="study-design">
+      <div class="section-kicker">03 · 作者怎麼驗證</div>
+      <div class="heading-row">
+        <h2>一邊做實驗，<br>一邊看原子怎麼動。</h2>
+        <p>研究比較馬心細胞色素 <i>c</i> 的 Fe(II) 與 Fe(III) 狀態，再用分子動力學模擬拆解不同血基質配位狀態。</p>
+      </div>
+
+      <div class="method-track">
+        <article class="method-card">
+          <span class="method-no">A</span>
+          <h3>HDX-MS 實驗</h3>
+          <p>比較 Fe(II) 與 Fe(III) 的氘吸收，找出哪些胜肽區段在氧化後更容易打開氫鍵。</p>
+          <ul>
+            <li>標記時間 0.2–100 分鐘</li>
+            <li>三重複量測</li>
+            <li>序列覆蓋率 93.3%</li>
+          </ul>
+        </article>
+        <div class="method-join" aria-hidden="true">＋</div>
+        <article class="method-card accent-card">
+          <span class="method-no">B</span>
+          <h3>全原子 MD 模擬</h3>
+          <p>直接建立 6、5、4 配位構形，追蹤氫鍵距離、主鏈波動與血基質周圍的構形變化。</p>
+          <ul>
+            <li>每種狀態 3 次獨立模擬</li>
+            <li>每次 1 μs</li>
+            <li>比較 H-bond 與 RMSF</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section state-section" id="states">
+      <div class="shell">
+        <div class="section-kicker">04 · 三種 Fe(III) 狀態</div>
+        <div class="heading-row states-heading">
+          <h2>真正的轉折，藏在<br>「斷了哪一條鍵」。</h2>
+          <p>點選三種狀態，觀察結構變化和 HDX 訊號不一定同步。</p>
+        </div>
+
+        <div class="state-explorer">
+          <div class="state-tabs" role="tablist" aria-label="血基質配位狀態">
+            <button class="state-tab is-active" type="button" role="tab" aria-selected="true" data-state="six">
+              <span class="tab-number">6</span>
+              <span><b>六配位</b><small>M80、H18 都連著</small></span>
+            </button>
+            <button class="state-tab" type="button" role="tab" aria-selected="false" data-state="five">
+              <span class="tab-number">5</span>
+              <span><b>五配位</b><small>M80–Fe 斷裂</small></span>
+            </button>
+            <button class="state-tab" type="button" role="tab" aria-selected="false" data-state="four">
+              <span class="tab-number">4</span>
+              <span><b>四配位</b><small>M80、H18 都斷裂</small></span>
+            </button>
+          </div>
+
+          <div class="state-panel" aria-live="polite">
+            <div class="state-diagram" id="stateDiagram" data-state="six">
+              <div class="loop loop-a"></div>
+              <div class="loop loop-b"></div>
+              <div class="state-heme"><strong>Fe</strong></div>
+              <div class="axis axis-m80"><span>M80</span><i></i></div>
+              <div class="axis axis-h18"><i></i><span>H18</span></div>
+            </div>
+            <div class="state-copy">
+              <p class="state-status" id="stateStatus">GROUND STATE</p>
+              <h3 id="stateTitle">六配位 Fe(III)</h3>
+              <p id="stateDescription">結構接近原生狀態，M80 與 H18 都與血基質鐵配位。模擬中的氫鍵圖譜無法解釋實驗觀察到的 HDX 增強。</p>
+              <div class="signal-meter">
+                <span>氫鍵開啟程度</span>
+                <div class="meter"><i id="signalMeter" style="width: 18%"></i></div>
+                <b id="signalLabel">低</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="result">
+      <div class="section-kicker">05 · 最重要的結果</div>
+      <div class="result-grid">
+        <div class="result-visual">
+          <div class="region-label proximal">近端區域<br><small>約 residues 24–45</small></div>
+          <div class="protein-map">
+            <div class="map-loop map-one"></div>
+            <div class="map-loop map-two"></div>
+            <div class="map-loop map-three"></div>
+            <div class="map-heme">Fe</div>
+            <span class="hotspot hot-one"></span>
+            <span class="hotspot hot-two"></span>
+          </div>
+          <div class="region-label distal">遠端區域<br><small>60s helix、71–85 Ω loop</small></div>
+        </div>
+        <div class="result-copy">
+          <h2>最大的動作，<br><em>反而幾乎沒有 HDX 訊號。</em></h2>
+          <div class="finding">
+            <span>01</span>
+            <p><strong>五配位：</strong>M80–Fe 斷裂使遠端 Ω loop 大幅翻開並暴露血基質，但氫鍵網路只出現極小變化——幾乎是 HDX-silent。</p>
+          </div>
+          <div class="finding">
+            <span>02</span>
+            <p><strong>四配位：</strong>M80 與 H18 都失去配位後，遠端與近端出現廣泛氫鍵開啟；這個圖譜最接近 HDX-MS 實驗。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section evidence-section">
+      <div class="shell">
+        <div class="section-kicker">06 · 證據鏈</div>
+        <h2>實驗看到「哪裡打開」，<br>模擬回答「為什麼打開」。</h2>
+        <div class="evidence-flow">
+          <div class="evidence-step">
+            <span>HDX-MS</span>
+            <p>Fe(III) 在血基質近端與遠端都有較高氘交換。</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="evidence-step muted">
+            <span>6 配位模型</span>
+            <p>方向不符；氧化本身不足以解釋 HDX 增強。</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="evidence-step muted">
+            <span>5 配位模型</span>
+            <p>構形變化大，卻沒有對應的大規模氫鍵開啟。</p>
+          </div>
+          <div class="flow-arrow" aria-hidden="true">→</div>
+          <div class="evidence-step winner">
+            <span>4 配位模型</span>
+            <p>遠端與近端的氫鍵開啟最符合實驗圖譜。</p>
+          </div>
+        </div>
+        <p class="caution"><strong>解讀界線：</strong>四配位構形不是被 HDX-MS 直接拍到；它是由實驗圖譜與 MD 模擬的一致性所強烈支持。</p>
+      </div>
+    </section>
+
+    <section class="section takeaway-section" id="takeaway">
+      <div class="shell takeaway-card">
+        <div class="takeaway-label">TAKE-HOME MESSAGE</div>
+        <blockquote>HDX-MS 提供的是一張<strong>以氫鍵為中心</strong>的動態地圖，而不是蛋白質運動的完整地圖。</blockquote>
+        <div class="takeaway-comparison">
+          <div><span class="dot visible"></span><p><b>氫鍵有打開</b><br>HDX 可以感受到</p></div>
+          <div><span class="dot hidden"></span><p><b>構形改變但氫鍵沒變</b><br>可能成為 HDX-silent</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="faq">
+      <div class="section-kicker">07 · 聽完後可能會問</div>
+      <div class="faq-grid">
+        <h2>三個常見問題</h2>
+        <div class="faq-list">
+          <details>
+            <summary>這篇論文是在說 HDX-MS 不可靠嗎？</summary>
+            <p>不是。作者強調 HDX-MS 仍是研究蛋白質動態的強大工具；重點是理解它主要回報與氫鍵開啟耦合的動態，因此需要搭配其他方法解讀。</p>
+          </details>
+          <details>
+            <summary>為什麼罕見的四配位構形會影響結果？</summary>
+            <p>HDX 能累積記錄短暫出現的 NH<sub>OPEN</sub> 狀態。即使四配位構形族群很低，只要它造成許多氫鍵開啟，就可能對氘交換留下明顯訊號。</p>
+          </details>
+          <details>
+            <summary>為什麼五配位的大幅移動反而看不到？</summary>
+            <p>五配位形成時遠端迴圈重新定位，但多數主鏈氫鍵仍保持完整；因此幾何位置改變很大，HDX 所需要的氫鍵開啟卻很少。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="source-section">
+      <div class="shell source-card">
+        <div>
+          <p class="source-label">SOURCE PAPER</p>
+          <h2>Hydrogen/Deuterium Exchange Measurements May Provide an Incomplete View of Protein Dynamics</h2>
+          <p>Scrosati, Yin & Konermann · <i>Analytical Chemistry</i> 2021, 93, 14121–14129</p>
+        </div>
+        <a href="https://doi.org/10.1021/acs.analchem.1c02471" target="_blank" rel="noopener noreferrer">查看論文 DOI <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-content">
+      <p>本頁為課堂報告導讀，內容依論文本文與 Supporting Information 整理。</p>
+      <a href="#top">回到頁首 ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

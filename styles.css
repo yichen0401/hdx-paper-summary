@@ -152,6 +152,7 @@ mark { padding: 0 .12em; color: inherit; background: linear-gradient(transparent
 
 .state-section { overflow: hidden; background: #e9e7e1; }
 .states-heading { margin-bottom: 48px; }
+.states-intro { padding-left: 18px; border-left: 3px solid var(--cyan); }
 .state-explorer { display: grid; grid-template-columns: 320px 1fr; border: 1px solid #cbc9c3; border-radius: 30px; overflow: hidden; background: var(--paper); box-shadow: var(--shadow); }
 .state-tabs { display: flex; flex-direction: column; border-right: 1px solid #cbc9c3; }
 .state-tab { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: center; min-height: 112px; padding: 22px; color: var(--ink); border: 0; border-bottom: 1px solid #cbc9c3; text-align: left; background: transparent; cursor: pointer; transition: background .2s ease, color .2s ease; }
@@ -171,21 +172,34 @@ mark { padding: 0 .12em; color: inherit; background: linear-gradient(transparent
 .loop-a { width: 280px; height: 190px; border-color: var(--cyan); clip-path: polygon(0 0, 100% 0, 100% 68%, 0 100%); }
 .loop-b { width: 220px; height: 270px; border-color: var(--pink); clip-path: polygon(0 0, 100% 0, 70% 100%, 0 100%); transform: translate(-50%, -50%) rotate(-34deg); }
 .axis { position: absolute; z-index: 4; left: 50%; display: flex; flex-direction: column; align-items: center; color: var(--ink); font-size: .7rem; font-weight: 800; transform: translateX(-50%); }
-.axis i { height: 67px; border-left: 2px dashed currentColor; transition: height .5s ease, opacity .3s ease; }
+.axis i { position: relative; display: block; width: 0; height: 67px; border-left: 2px dashed currentColor; transition: height .5s ease, border-color .3s ease; }
+.axis i::after { content: ""; position: absolute; top: 50%; left: 50%; display: grid; width: 25px; aspect-ratio: 1; place-items: center; border: 1px solid rgba(232,59,98,.35); border-radius: 50%; opacity: 0; transform: translate(-50%, -50%) scale(.7); color: var(--heme); background: var(--paper); font-size: 1.15rem; font-style: normal; line-height: 1; transition: opacity .25s ease, transform .25s ease; }
 .axis-m80 { bottom: calc(50% + 44px); color: #a88000; }
 .axis-h18 { top: calc(50% + 44px); color: #168f9b; }
 .state-diagram[data-state="five"] .loop-a { width: 345px; height: 245px; transform: translate(-43%, -65%) rotate(-4deg); }
-.state-diagram[data-state="five"] .axis-m80 i { height: 118px; opacity: .18; }
+.state-diagram[data-state="five"] .axis-m80 i { height: 118px; border-left-color: rgba(168,128,0,.18); }
 .state-diagram[data-state="four"] .loop-a { width: 325px; height: 255px; transform: translate(-56%, -48%) rotate(25deg); }
 .state-diagram[data-state="four"] .loop-b { width: 290px; height: 290px; transform: translate(-42%, -52%) rotate(-48deg); }
-.state-diagram[data-state="four"] .axis i { height: 108px; opacity: .15; }
+.state-diagram[data-state="four"] .axis i { height: 108px; }
+.state-diagram[data-state="four"] .axis-m80 i { border-left-color: rgba(168,128,0,.18); }
+.state-diagram[data-state="four"] .axis-h18 i { border-left-color: rgba(22,143,155,.18); }
+.state-diagram[data-state="five"] .axis-m80 i::after,
+.state-diagram[data-state="four"] .axis i::after { content: "×"; opacity: 1; transform: translate(-50%, -50%) scale(1); }
 .state-copy .state-status { margin-bottom: 10px; color: var(--pink); font-size: .7rem; font-weight: 900; letter-spacing: .16em; }
 .state-copy h3 { margin-bottom: 18px; font-size: clamp(1.9rem, 3vw, 3rem); }
 .state-copy > p:not(.state-status) { min-height: 88px; }
-.signal-meter { display: grid; grid-template-columns: auto 1fr 34px; gap: 12px; align-items: center; margin-top: 30px; }
-.signal-meter span, .signal-meter b { font-size: .75rem; }
-.meter { height: 8px; overflow: hidden; border-radius: 999px; background: #d7d4cd; }
-.meter i { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--cyan), var(--pink)); transition: width .45s ease; }
+.signal-meter { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; justify-content: space-between; margin-top: 30px; padding-top: 18px; border-top: 1px solid var(--line); }
+.signal-meter span { color: #62697a; font-size: .75rem; font-weight: 700; }
+.signal-meter b { padding: 7px 11px; border-radius: 999px; color: #0b6971; background: rgba(80,214,212,.2); font-size: .75rem; }
+.signal-meter b[data-level="high"] { color: #a51f40; background: rgba(255,82,119,.18); }
+.state-legend { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px 28px; padding-top: 22px; border-top: 1px solid var(--line); }
+.state-legend span { display: flex; gap: 10px; align-items: center; color: #4e5567; font-size: .74rem; }
+.state-legend small { grid-column: 1 / -1; color: #7b8190; font-size: .68rem; }
+.legend-line, .legend-bond { flex: 0 0 auto; display: block; width: 30px; height: 0; border-top: 4px solid; }
+.distal-line { border-color: var(--cyan); }
+.proximal-line { border-color: var(--pink); }
+.legend-bond { border-top: 2px dashed #777d89; }
+.legend-break { flex: 0 0 auto; display: grid; width: 23px; aspect-ratio: 1; place-items: center; border: 1px solid rgba(232,59,98,.35); border-radius: 50%; color: var(--heme); font-size: 1rem; font-style: normal; font-weight: 900; line-height: 1; }
 
 .result-grid { display: grid; grid-template-columns: .84fr 1.16fr; gap: 80px; align-items: center; }
 .result-visual { position: relative; min-height: 590px; }
@@ -273,6 +287,8 @@ footer { padding: 24px 0; color: #9ba6bc; background: #050812; }
   .state-tab small { display: none; }
   .state-panel { grid-template-columns: 1fr; gap: 10px; }
   .state-diagram { min-height: 320px; }
+  .state-legend { grid-template-columns: 1fr; gap: 9px; margin-top: 14px; }
+  .state-legend small { grid-column: 1; }
   .result-grid { gap: 30px; }
   .result-visual { min-height: 470px; }
   .evidence-flow { grid-template-columns: 1fr; gap: 0; }
@@ -299,7 +315,8 @@ footer { padding: 24px 0; color: #9ba6bc; background: #050812; }
   .mechanism-arrow { flex-direction: row; gap: 8px; justify-content: center; transform: rotate(90deg); }
   .mechanism-arrow span { display: none; }
   .state-panel { padding: 24px 18px 34px; }
-  .state-diagram { min-height: 280px; transform: scale(.86); margin: -20px -20px; }
+  .state-diagram { min-height: 280px; margin: -20px -20px 24px; transform: scale(.86); }
+  .state-copy .state-status { margin-top: 8px; }
   .state-copy > p:not(.state-status) { min-height: 0; }
   .result-visual { min-height: 390px; }
   .protein-map { width: 300px; }

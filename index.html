@@ -134,7 +134,7 @@
         <div class="section-kicker">04 · 三種 Fe(III) 狀態</div>
         <div class="heading-row states-heading">
           <h2>真正的轉折，藏在<br>「斷了哪一條鍵」。</h2>
-          <p>點選三種狀態，觀察結構變化和 HDX 訊號不一定同步。</p>
+          <p class="states-intro">依序點選 6 → 5 → 4：先看上下配位鍵是否出現「×」，再看青、紅曲線如何變形，最後比較氫鍵開啟程度。</p>
         </div>
 
         <div class="state-explorer">
@@ -162,14 +162,20 @@
               <div class="axis axis-h18"><i></i><span>H18</span></div>
             </div>
             <div class="state-copy">
-              <p class="state-status" id="stateStatus">GROUND STATE</p>
+              <p class="state-status" id="stateStatus">基態 · 兩條軸向配位都連接</p>
               <h3 id="stateTitle">六配位 Fe(III)</h3>
-              <p id="stateDescription">結構接近原生狀態，M80 與 H18 都與血基質鐵配位。模擬中的氫鍵圖譜無法解釋實驗觀察到的 HDX 增強。</p>
+              <p id="stateDescription">M80 與 H18 都和血基質鐵配位，青、紅兩側皆接近原生構形；此模型無法解釋實驗觀察到的 HDX 增強。</p>
               <div class="signal-meter">
                 <span>氫鍵開啟程度</span>
-                <div class="meter"><i id="signalMeter" style="width: 18%"></i></div>
-                <b id="signalLabel">低</b>
+                <b id="signalLabel" data-level="low">低</b>
               </div>
+            </div>
+            <div class="state-legend" aria-label="互動圖圖例">
+              <span><i class="legend-line distal-line"></i>青色曲線：遠端構形（M80 側）</span>
+              <span><i class="legend-line proximal-line"></i>紅色曲線：近端構形（H18 側）</span>
+              <span><i class="legend-bond"></i>虛線：胺基酸與 Fe 的配位鍵</span>
+              <span><i class="legend-break">×</i>配位鍵已斷裂</span>
+              <small>曲線僅用來比較構形變化，並非原子級比例圖。</small>
             </div>
           </div>
         </div>

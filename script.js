@@ -1,24 +1,24 @@
 const stateData = {
   six: {
-    status: "GROUND STATE",
+    status: "基態 · 兩條軸向配位都連接",
     title: "六配位 Fe(III)",
-    description: "結構接近原生狀態，M80 與 H18 都與血基質鐵配位。模擬中的氫鍵圖譜無法解釋實驗觀察到的 HDX 增強。",
-    meter: "18%",
+    description: "M80 與 H18 都和血基質鐵配位，青、紅兩側皆接近原生構形；此模型無法解釋實驗觀察到的 HDX 增強。",
+    level: "low",
     signal: "低"
   },
   five: {
-    status: "MAJOR MOTION · ALMOST HDX-SILENT",
+    status: "大幅構形移動 · 幾乎沒有 HDX 訊號",
     title: "五配位 Fe(III)",
-    description: "M80–Fe 斷裂，遠端 Ω loop 大幅翻開並暴露血基質；但多數主鏈氫鍵仍維持，因此 HDX 訊號只出現很小變化。",
-    meter: "27%",
-    signal: "低"
+    description: "上方 M80–Fe 配位鍵出現「×」，青色遠端曲線大幅變形；但多數主鏈氫鍵仍維持，因此幾乎是 HDX-silent。",
+    level: "low",
+    signal: "低（近乎 HDX-silent）"
   },
   four: {
-    status: "RARE · HDX-DETECTABLE",
+    status: "低族群構形 · HDX 可偵測",
     title: "四配位 Fe(III)",
-    description: "M80 與 H18 配位都斷裂，近端與遠端出現廣泛氫鍵開啟。雖然是低族群構形，卻最能解釋實驗的 HDX 增強。",
-    meter: "88%",
-    signal: "高"
+    description: "上下兩條配位鍵都出現「×」，青色遠端與紅色近端曲線皆明顯改變，並伴隨廣泛氫鍵開啟；此模型最符合實驗。",
+    level: "high",
+    signal: "高（最符合實驗）"
   }
 };
 
@@ -27,7 +27,6 @@ const diagram = document.getElementById("stateDiagram");
 const title = document.getElementById("stateTitle");
 const description = document.getElementById("stateDescription");
 const status = document.getElementById("stateStatus");
-const meter = document.getElementById("signalMeter");
 const signal = document.getElementById("signalLabel");
 
 tabs.forEach((tab) => {
@@ -43,8 +42,8 @@ tabs.forEach((tab) => {
     title.textContent = data.title;
     description.textContent = data.description;
     status.textContent = data.status;
-    meter.style.width = data.meter;
     signal.textContent = data.signal;
+    signal.dataset.level = data.level;
   });
 });
 
